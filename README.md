@@ -33,16 +33,17 @@ npx geth-dev-assistant [options]
 
 ### Options
 
-```
---accounts  number of accounts to create / unlock       [number] [default: 10]
---password  for geth accounts      [string] [default: "left-hand-of-darkness"]
---balance   account starting balances (in ETH)         [number] [default: 100]
---gasLimit  block gas limit target to mine towards                    [number]
---sleep     ms to wait for geth to spin up            [number] [default: 5000]
---port      port to connect to client with            [number] [default: 8545]
---protocol           [string] [choices: "http", "ws", "ipc"] [default: "http"]
---help      Show help                                                [boolean]
-```
+| Option   | Description                                 | Type   | Default                |
+| -------- | ------------------------------------------- | ------ | ---------------------- |
+| accounts | number of accounts to create / unlock       | number | 10                     |
+| password | for geth accounts                           | string | "left-hand-of-darkness"|
+| balance  | account starting balances (in ETH)          | number | 100                    |
+| gasLimit | block gas limit target to mine towards      | number | 0                      |
+| sleep    | ms to wait for geth to spin up              | number | 5000                   |
+| port     | port to connect to client with              | number | 8545                   |
+| protocol | "http", "ws", "ipc"                         | string | "http"                 |
+| help     | Show help                                   | bool   | false                  |
+
 
 ### Usage Example
 ```shell
