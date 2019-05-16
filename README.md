@@ -1,7 +1,7 @@
 # geth-dev-assistant
 
 A light, portable configuration utility for geth's `--dev` ephemeral POA network.
-Helpful if you're running unit tests with geth in CI. 
+Helpful when using geth in CI. 
 
 ![Screen Shot 2019-05-15 at 8 32 18 PM](https://user-images.githubusercontent.com/7332026/57824681-b3414900-7750-11e9-97b7-a0ef6008dec7.png)
 
@@ -42,7 +42,7 @@ npx geth-dev-assistant [options]
 | sleep    | ms to wait for geth to spin up              | number | 5000                   |
 | port     | port to connect to client with              | number | 8545                   |
 | protocol | "http", "ws", "ipc"                         | string | "http"                 |
-| help     | Show help                                   | bool   | false                  |
+| help     | show help                                   | bool   | false                  |
 
 
 ### Usage Example
