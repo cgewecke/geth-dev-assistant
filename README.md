@@ -33,7 +33,7 @@ npx geth-dev-assistant [options]
 
 ### Options
 
-```shell
+```
 --accounts  number of accounts to create / unlock       [number] [default: 10]
 --password  for geth accounts      [string] [default: "left-hand-of-darkness"]
 --balance   account starting balances (in ETH)         [number] [default: 100]
