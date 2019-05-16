@@ -1,0 +1,34 @@
+{
+  "name": "geth-dev-assistant",
+  "version": "0.0.1",
+  "description": "Configuration utility for geth's `--dev` ephemeral POA network.",
+  "bin": {
+    "geth-dev-assistant": "./index.js"
+  },
+  "scripts": {
+    "test": "./test/test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgewecke/geth-dev-assistant.git"
+  },
+  "keywords": [
+    "go",
+    "ethereum",
+    "CI"
+  ],
+  "author": "cgewecke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cgewecke/geth-dev-assistant/issues"
+  },
+  "homepage": "https://github.com/cgewecke/geth-dev-assistant#readme",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "web3": "1.0.0-beta.37",
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  }
+}
