@@ -17,11 +17,16 @@ This tool:
 + Mines blocks with no-op txs until a gas limit target is reached.
 
 ### Install
-```
+```shell
 npm install --save-dev geth-dev-assistant
 ```
+### Run
+```shell
+# After launching geth 
+npx geth-dev-assistant [options]
+```
 
-### Client requirements
+### Geth client requirements
 
 + `personal,web3,eth` APIs enabled
 + `--allow-insecure-unlock` flag set
@@ -29,17 +34,14 @@ npm install --save-dev geth-dev-assistant
 ### Options
 
 ```shell
-Usage: geth-dev-assistant [options]
-
-Options:
-  --accounts  number of accounts to create / unlock       [number] [default: 10]
-  --password  for geth accounts      [string] [default: "left-hand-of-darkness"]
-  --balance   account starting balances (in ETH)         [number] [default: 100]
-  --gasLimit  block gas limit target to mine towards                    [number]
-  --sleep     ms to wait for geth to spin up            [number] [default: 5000]
-  --port      port to connect to client with            [number] [default: 8545]
-  --protocol           [string] [choices: "http", "ws", "ipc"] [default: "http"]
-  --help      Show help                                                [boolean]
+--accounts  number of accounts to create / unlock       [number] [default: 10]
+--password  for geth accounts      [string] [default: "left-hand-of-darkness"]
+--balance   account starting balances (in ETH)         [number] [default: 100]
+--gasLimit  block gas limit target to mine towards                    [number]
+--sleep     ms to wait for geth to spin up            [number] [default: 5000]
+--port      port to connect to client with            [number] [default: 8545]
+--protocol           [string] [choices: "http", "ws", "ipc"] [default: "http"]
+--help      Show help                                                [boolean]
 ```
 
 ### Usage Example
@@ -71,7 +73,7 @@ docker run \
 # Configure client
 npx geth-dev-assistant \
     --accounts 5 \
-    --password 'hello' \
+    --password 'you are nice' \
     --balance 50 \
     --gasLimit 7000000
 
@@ -83,5 +85,5 @@ docker stop geth-client
 ```
 
 ### Other resources
-+ A nice POA network setup using genesis.json [at 0xProject](https://github.com/0xProject/0x-monorepo/blob/development/packages/devnet/genesis.json). (Launches faster but it's a little heavier)
++ A POA network setup using genesis.json [at 0xProject](https://github.com/0xProject/0x-monorepo/blob/development/packages/devnet/genesis.json). (Launches faster but it's a little heavier)
 + Geth client options [wiki](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
