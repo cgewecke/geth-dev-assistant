@@ -1,7 +1,9 @@
 # geth-dev-assistant
 
-A configuration utility for geth's `--dev` ephemeral POA network.
-Helpful if you're running unit tests with geth in CI.
+A light, portable configuration utility for geth's `--dev` ephemeral POA network.
+Helpful if you're running unit tests with geth in CI. 
+
+![Screen Shot 2019-05-15 at 8 32 18 PM](https://user-images.githubusercontent.com/7332026/57824681-b3414900-7750-11e9-97b7-a0ef6008dec7.png)
 
 Geth `--dev` seeds with a single funded account and has a relatively low default block gas limit
 (~ 6 mil). If the client's mining period is set to 0, it needs to be spun with transactions
@@ -81,5 +83,5 @@ docker stop geth-client
 ```
 
 ### Other resources
-+ A nice Clique POA network setup using genesis.json [at 0xProject](https://github.com/0xProject/0x-monorepo/blob/development/packages/devnet/genesis.json).
++ A nice POA network setup using genesis.json [at 0xProject](https://github.com/0xProject/0x-monorepo/blob/development/packages/devnet/genesis.json). (Launches faster but it's a little heavier)
 + Geth client options [wiki](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
