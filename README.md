@@ -1,6 +1,6 @@
 # geth-dev-assistant
 
-A light, portable configuration utility for geth's `--dev` ephemeral POA network.
+A configuration utility for geth's `--dev` ephemeral POA network.
 Helpful when using geth in CI. 
 
 ![Screen Shot 2019-05-15 at 8 32 18 PM](https://user-images.githubusercontent.com/7332026/57824681-b3414900-7750-11e9-97b7-a0ef6008dec7.png)
