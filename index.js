@@ -21,6 +21,7 @@ const argv = require('yargs')
       type: 'number'
     },
     'gasLimit': {
+      default: 5900000,
       describe: 'block gas limit target to mine towards',
       type: 'number'
     },

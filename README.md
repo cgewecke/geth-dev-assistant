@@ -53,7 +53,7 @@ docker stop geth-client
 | accounts | number of accounts to create / unlock       | number | 10                     |
 | password | for geth accounts                           | string | "left-hand-of-darkness"|
 | balance  | account starting balances (in ETH)          | number | 100                    |
-| gasLimit | block gas limit target to mine towards      | number | 0                      |
+| gasLimit | block gas limit target to mine towards      | number | 5900000                |
 | launch   | pull and launch a geth docker instance      | bool   | false                  |
 | repo     | root docker repo (useful for forks)         | string | 'ethereum/client-go'   |
 | tag      | geth version / docker tag to fetch          | string | 'stable'               |
