@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-const app = require('./app');
-const Web3 = require('web3');
+const app = require('./lib/app');
 
 const argv = require('yargs')
   .usage('Usage: $0 [options]')
@@ -24,6 +23,20 @@ const argv = require('yargs')
     'gasLimit': {
       describe: 'block gas limit target to mine towards',
       type: 'number'
+    },
+    'launch': {
+      default: false,
+      describe: 'launch geth docker in the background',
+      type: 'boolean',
+    },
+    'tag': {
+      default: 'stable',
+      describe: 'geth docker release to pull & use',
+      type: 'string',
+    },
+    'offline': {
+      describe: 'skip docker pull step (image is locally available)',
+      type: 'boolean',
     },
     'sleep': {
       default: 5000,
