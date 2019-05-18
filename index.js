@@ -29,6 +29,11 @@ const argv = require('yargs')
       describe: 'launch geth docker in the background',
       type: 'boolean',
     },
+    'repo': {
+      default: 'ethereum/client-go',
+      describe: 'root docker repo (useful for forks)',
+      type: 'string'
+    },
     'tag': {
       default: 'stable',
       describe: 'geth docker release to pull & use',

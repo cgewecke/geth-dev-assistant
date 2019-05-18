@@ -1,29 +1,44 @@
 # geth-dev-assistant
 
-A configuration utility for geth's `--dev` ephemeral POA network.
-Helpful when using geth in CI. 
+Quickly configure and launch a geth `--dev` ephemeral POA network.
+Helpful when using geth in CI.
 
-![Screen Shot 2019-05-15 at 8 32 18 PM](https://user-images.githubusercontent.com/7332026/57824681-b3414900-7750-11e9-97b7-a0ef6008dec7.png)
+![Screen Shot 2019-05-18 at 12 06 40 AM](https://user-images.githubusercontent.com/7332026/57965995-0fe36600-7901-11e9-94eb-83a49b171bcb.png)
+
++ (Optionally) pulls and launches a docker geth instance as a background process ([default config]())
++ Waits a few seconds while the client spins up
++ Creates and unlocks some password generated accounts
++ Funds them with a balance
++ Mines blocks with no-op txs until a gas limit target is reached.
 
 Geth `--dev` seeds with a single funded account and has a relatively low default block gas limit
 (~ 6 mil). If the client's mining period is set to 0, it needs to be spun with transactions
 before a higher gas limit target is reached.
 
-This tool:
-
-+ Waits a few seconds while geth launches
-+ Creates and unlocks some password generated accounts
-+ Funds them with a balance
-+ Mines blocks with no-op txs until a gas limit target is reached.
-
 ### Install
 ```shell
 npm install --save-dev geth-dev-assistant
 ```
+
 ### Run
 ```shell
-# After launching geth 
 npx geth-dev-assistant [options]
+```
+
+### Usage Example
+```shell
+npx geth-dev-assistant \
+    --launch \
+    --tag 'latest' \
+    --accounts 5 \
+    --balance 50 \
+    --gasLimit 7000000
+
+# Run tests
+npx mocha
+
+# Clean-up
+docker stop geth-client
 ```
 
 ### Geth client requirements
@@ -39,52 +54,17 @@ npx geth-dev-assistant [options]
 | password | for geth accounts                           | string | "left-hand-of-darkness"|
 | balance  | account starting balances (in ETH)          | number | 100                    |
 | gasLimit | block gas limit target to mine towards      | number | 0                      |
+| launch   | pull and launch a geth docker instance      | bool   | false                  |
+| repo     | root docker repo (useful for forks)         | string | 'ethereum/client-go'   |
+| tag      | geth version / docker tag to fetch          | string | 'stable'               |
+| offline  | do not pull image from docker hub           | bool   | false                  |
 | sleep    | ms to wait for geth to spin up              | number | 5000                   |
 | port     | port to connect to client with              | number | 8545                   |
 | protocol | "http", "ws", "ipc"                         | string | "http"                 |
 | help     | show help                                   | bool   | false                  |
 
 
-### Usage Example
-```shell
-# Get client
-docker pull ethereum/client-go:latest
-
-# Launch client (silently)
-docker run \
-    -d \
-    -p 8545:8545 \
-    -p 30303:30303 \
-    --name geth-client \
-    --rm \
-    ethereum/client-go:latest \
-    --rpc \
-    --rpcaddr '0.0.0.0' \
-    --rpcport 8545 \
-    --rpccorsdomain '*' \
-    --rpcapi personal,web3,eth,net \
-    --nodiscover \
-    --allow-insecure-unlock \
-    --dev \
-    --dev.period 0 \
-    --targetgaslimit '7000000' \
-    > /dev/null &
-
-
-# Configure client
-npx geth-dev-assistant \
-    --accounts 5 \
-    --password 'you are nice' \
-    --balance 50 \
-    --gasLimit 7000000
-
-# Run tests
-npx mocha
-
-# Clean-up
-docker stop geth-client
-```
-
 ### Other resources
-+ A POA network setup using genesis.json [at 0xProject](https://github.com/0xProject/0x-monorepo/blob/development/packages/devnet/genesis.json). (Launches faster but it's a little heavier)
++ A POA network setup using genesis.json [at 0xProject](https://github.com/0xProject/0x-monorepo/blob/development/packages/devnet/genesis.json).
++ [ethnode](https://github.com/vrde/ethnode) a zero config tool to run a local Ethereum dev node (geth & parity!)
 + Geth client options [wiki](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
