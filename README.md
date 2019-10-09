@@ -50,16 +50,16 @@ docker stop geth-client
 
 | Option   | Description                                 | Type   | Default                |
 | -------- | ------------------------------------------- | ------ | ---------------------- |
-| accounts | number of accounts to create / unlock       | number | 10                     |
+| accounts | number of accounts to create / unlock       | number | 0 (use default acct)   |
 | password | for geth accounts                           | string | "left-hand-of-darkness"|
-| balance  | account starting balances (in ETH)          | number | 100                    |
+| balance  | new account starting balances (in ETH)      | number | 100                    |
 | gasLimit | block gas limit target to mine towards      | number | 5900000                |
-| launch   | pull and launch a geth docker instance      | bool   | false                  |
+| launch   | pull and launch a geth docker instance      | bool   | true                   |
 | repo     | root docker repo (useful for forks)         | string | 'ethereum/client-go'   |
 | tag      | geth version / docker tag to fetch          | string | 'stable'               |
 | offline  | do not pull image from docker hub           | bool   | false                  |
-| sleep    | seconds to wait for geth to spin up         | number | 5                      |
-| period   | automining interval                         | number | 0                      |
+| sleep    | max seconds to wait for geth to spin up     | number | 10                     |
+| period   | automining interval                         | number | 0 (insta-mine)         |
 | port     | port to connect to client with              | number | 8545                   |
 | protocol | "http", "ws", "ipc"                         | string | "http"                 |
 | help     | show help                                   | bool   | false                  |
