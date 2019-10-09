@@ -1,8 +1,13 @@
 const assert = require('assert');
 const Web3 = require('web3');
-const web3 = new Web3('http://localhost:8545');
 
-describe('Insta-mining [ @basic-http ]', function(){
+describe('Insta-mining [ @basic-websockets ]', function(){
+  let web3;
+
+  before(()=> {
+    web3 = new Web3('ws://127.0.0.1:8546');
+  });
+
   it('has a single account', async function(){
     const accounts = await web3.eth.getAccounts();
     assert(accounts.length === 1, `Should have one account, actually has: ${accounts.length}`)

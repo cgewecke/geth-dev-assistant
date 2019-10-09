@@ -56,13 +56,13 @@ const argv = require('yargs')
     },
     'port': {
       default: 8545,
-      describe: 'port to connect to client with',
+      describe: 'http port to connect to client with',
       type: 'number'
     },
-    'protocol': {
-      default: 'http',
-      type: 'string',
-      choices: ['http', 'ws', 'ipc'],
+    'wsport': {
+      default: 8546,
+      describe: 'ws port to connect to client with',
+      type: 'number'
     },
   })
   .help()

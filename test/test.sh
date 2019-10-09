@@ -11,12 +11,13 @@ cleanup(){
 # : <<'END'
 # END
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
-echo "Instamining tests  (basic)"
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Instamining tests  (basic, http & websockets)"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 node ./index.js --tag 'latest'
-npx mocha --grep "basic" --timeout 5000
+npx mocha --grep "basic-http" --timeout 5000
+npx mocha --grep "basic-websockets" --timeout 5000 --exit
 cleanup
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -41,4 +42,3 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 node ./index.js --tag 'latest' --period 1
 npx mocha --grep "period" --timeout 5000
-

@@ -5,11 +5,11 @@ Helpful when using geth in CI.
 
 ![Screen Shot 2019-05-18 at 12 06 40 AM](https://user-images.githubusercontent.com/7332026/57965995-0fe36600-7901-11e9-94eb-83a49b171bcb.png)
 
-+ (Optionally) pulls and launches a docker geth instance as a background process ([default config]())
-+ Waits a few seconds while the client spins up
-+ Creates and unlocks some password generated accounts
-+ Funds them with a balance
-+ Mines blocks with no-op txs until a gas limit target is reached.
++ Pulls a specified geth docker image from Docker Hub
++ Launches a docker geth instance as a background process
++ Waits until geth is ready to receive calls over http / websockets
++ (Optionally) creates, unlocks and funds some password generated accounts
++ (Optionally) mines blocks with no-op txs until a gas limit target is reached.
 
 Geth `--dev` seeds with a single funded account and has a relatively low default block gas limit
 (~ 6 mil). If the client's mining period is set to 0, it needs to be spun with transactions
@@ -41,11 +41,6 @@ npx mocha
 docker stop geth-client
 ```
 
-### Geth client requirements
-
-+ `personal,web3,eth` APIs enabled
-+ `--allow-insecure-unlock` flag set
-
 ### Options
 
 | Option   | Description                                 | Type   | Default                |
@@ -61,7 +56,6 @@ docker stop geth-client
 | sleep    | max seconds to wait for geth to spin up     | number | 10                     |
 | period   | automining interval                         | number | 0 (insta-mine)         |
 | port     | port to connect to client with              | number | 8545                   |
-| protocol | "http", "ws", "ipc"                         | string | "http"                 |
 | help     | show help                                   | bool   | false                  |
 
 
