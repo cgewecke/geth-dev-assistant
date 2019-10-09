@@ -7,6 +7,10 @@ cleanup(){
   docker stop geth-client
 }
 
+# Block comment cheat-sheet
+# : <<'END'
+# END
+
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo "Instamining tests  (basic)"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -29,3 +33,12 @@ node ./index.js \
 
 # Run tests
 npx mocha --grep "accounts" --timeout 5000
+cleanup
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Automining tests (--period)"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+node ./index.js --tag 'latest' --period 1
+npx mocha --grep "period" --timeout 5000
+
