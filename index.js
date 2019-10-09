@@ -6,7 +6,7 @@ const argv = require('yargs')
   .usage('Usage: $0 [options]')
   .options({
     'accounts': {
-      default: 10,
+      default: 0,
       describe: 'number of accounts to create / unlock',
       type: 'number',
     },
@@ -26,13 +26,13 @@ const argv = require('yargs')
       type: 'number'
     },
     'launch': {
-      default: false,
+      default: true,
       describe: 'launch geth docker in the background',
       type: 'boolean',
     },
     'repo': {
       default: 'ethereum/client-go',
-      describe: 'root docker repo (useful for forks)',
+      describe: 'docker hub root',
       type: 'string'
     },
     'tag': {
@@ -45,19 +45,24 @@ const argv = require('yargs')
       type: 'boolean',
     },
     'sleep': {
-      default: 5000,
-      describe: 'ms to wait for geth to spin up',
+      default: 10,
+      describe: 'seconds to wait for geth to spin up',
+      type: 'number'
+    },
+    'period': {
+      default: 0,
+      describe: 'automining interval',
       type: 'number'
     },
     'port': {
       default: 8545,
-      describe: 'port to connect to client with',
+      describe: 'http port to connect to client with',
       type: 'number'
     },
-    'protocol': {
-      default: 'http',
-      type: 'string',
-      choices: ['http', 'ws', 'ipc'],
+    'wsport': {
+      default: 8546,
+      describe: 'ws port to connect to client with',
+      type: 'number'
     },
   })
   .help()

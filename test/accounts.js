@@ -2,7 +2,7 @@ const assert = require('assert');
 const Web3 = require('web3');
 const web3 = new Web3('http://localhost:8545');
 
-describe('geth-dev-assistant', function(){
+describe('Insta-mining [ @accounts ]', function(){
 
   it('creates five new accounts (1 original, 5 new)', async function(){
     const accounts = await web3.eth.getAccounts();
