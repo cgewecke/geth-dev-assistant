@@ -58,7 +58,8 @@ docker stop geth-client
 | repo     | root docker repo (useful for forks)         | string | 'ethereum/client-go'   |
 | tag      | geth version / docker tag to fetch          | string | 'stable'               |
 | offline  | do not pull image from docker hub           | bool   | false                  |
-| sleep    | ms to wait for geth to spin up              | number | 5000                   |
+| sleep    | seconds to wait for geth to spin up         | number | 5                      |
+| period   | automining interval                         | number | 0                      |
 | port     | port to connect to client with              | number | 8545                   |
 | protocol | "http", "ws", "ipc"                         | string | "http"                 |
 | help     | show help                                   | bool   | false                  |

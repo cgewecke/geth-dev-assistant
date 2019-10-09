@@ -1,16 +1,31 @@
 set -o errexit
 
-# Post-launch setup
+trap cleanup EXIT
+
+cleanup(){
+  echo "Shutting down docker client..."
+  docker stop geth-client
+}
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Instamining tests  (basic)"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+node ./index.js --tag 'latest'
+npx mocha --grep "basic" --timeout 5000
+cleanup
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Instamining tests (accounts)"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
 node ./index.js \
     --launch \
     --tag 'latest' \
     --accounts 5 \
     --password 'hello' \
     --balance 50 \
-    --gasLimit 7000000
+    --gasLimit 7000000 \
 
 # Run tests
-npx mocha --timeout 5000
-
-# Clean-up
-docker stop geth-client
+npx mocha --grep "accounts" --timeout 5000
