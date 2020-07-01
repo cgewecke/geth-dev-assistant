@@ -1,6 +1,6 @@
 {
   "name": "geth-dev-assistant",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Configuration utility for geth's `--dev` ephemeral POA network.",
   "bin": {
     "geth-dev-assistant": "./index.js"
@@ -26,7 +26,7 @@
   "dependencies": {
     "colors": "^1.3.3",
     "node-emoji": "^1.10.0",
-    "web3": "^1.2.7-rc.0",
+    "web3": "^1.2.9",
     "yargs": "^13.2.2"
   },
   "devDependencies": {
