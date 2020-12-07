@@ -12,7 +12,7 @@ Helpful when using geth in CI.
 + (Optionally) mines blocks with no-op txs until a gas limit target is reached.
 
 Geth `--dev` seeds with a single funded account and has a relatively low default block gas limit
-(~ 6 mil). If the client's mining period is set to 0, it needs to be spun with transactions
+(~ 10 mil). If the client's mining period is set to 0, it needs to be spun with transactions
 before a higher gas limit target is reached.
 
 ### Install
@@ -28,11 +28,10 @@ npx geth-dev-assistant [options]
 ### Usage Example
 ```shell
 npx geth-dev-assistant \
-    --launch \
     --tag 'latest' \
     --accounts 5 \
     --balance 50 \
-    --gasLimit 7000000
+    --gasLimit 12000000
 
 # Run tests
 npx mocha
@@ -43,20 +42,20 @@ docker stop geth-client
 
 ### Options
 
-| Option   | Description                                 | Type   | Default                |
-| -------- | ------------------------------------------- | ------ | ---------------------- |
-| accounts | number of accounts to create / unlock       | number | 0 (use default acct)   |
-| password | for geth accounts                           | string | "left-hand-of-darkness"|
-| balance  | new account starting balances (in ETH)      | number | 100                    |
-| gasLimit | block gas limit target to mine towards      | number | 5900000                |
-| launch   | pull and launch a geth docker instance      | bool   | true                   |
-| repo     | root docker repo (useful for forks)         | string | 'ethereum/client-go'   |
-| tag      | geth version / docker tag to fetch          | string | 'stable'               |
-| offline  | do not pull image from docker hub           | bool   | false                  |
-| sleep    | max seconds to wait for geth to spin up     | number | 10                     |
-| period   | automining interval                         | number | 0 (insta-mine)         |
-| port     | port to connect to client with              | number | 8545                   |
-| help     | show help                                   | bool   | false                  |
+| Option   | Description                                 | Type   | Default                 |
+| -------- | ------------------------------------------- | ------ | ----------------------  |
+| accounts | number of accounts to create / unlock       | number | 0 (use default acct)    |
+| password | for geth accounts                           | string | "left-hand-of-darkness" |
+| balance  | new account starting balances (in ETH)      | number | 100                     |
+| gasLimit | block gas limit target to mine towards      | number | (varies by geth version)|
+| launch   | pull and launch a geth docker instance      | bool   | true                    |
+| repo     | root docker repo (useful for forks)         | string | 'ethereum/client-go'    |
+| tag      | geth version / docker tag to fetch          | string | 'stable'                |
+| offline  | do not pull image from docker hub           | bool   | false                   |
+| sleep    | max seconds to wait for geth to spin up     | number | 10                      |
+| period   | automining interval                         | number | 0 (insta-mine)          |
+| port     | http port to connect to client with         | number | 8545                    |
+| help     | show help                                   | bool   | false                   |
 
 
 ### Other resources
